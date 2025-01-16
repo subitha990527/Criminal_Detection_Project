@@ -1,0 +1,156 @@
+{% extends 'admintemp/admin.html' %}
+{% block content %}
+<!--<div class="col-md-6">-->
+<!--                           <div class="white_shd full margin_bottom_30">-->
+<!--                              <div class="full graph_head">-->
+<!--                                 <div class="heading1 margin_0">-->
+<!--                                    <h2>Police Station Details</h2>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="table_section padding_infor_info">-->
+<!--                                 <div class="table-responsive-sm">-->
+<!--                                    <table class="table">-->
+<!--                                       <thead class="thead-dark">-->
+<!--                                          <tr>-->
+<!--                                             <th>Station name</th>-->
+<!--                                             <th>Address</th>-->
+<!--                                              <th>Pin Code</th>-->
+<!--                                              <th>State</th>-->
+<!--                                              <th>Country</th>-->
+<!--                                              <th>Phone Number</th>-->
+<!--                                             <th>Email</th>-->
+<!--                                          </tr>-->
+<!--                                       </thead>-->
+<!--                                        {% for i in data %}-->
+<!--                                       <tbody>-->
+<!--                                          <tr>-->
+<!--                                             <td>{{ i.station_name }}</td>-->
+<!--                                             <td>{{ i.address }}</td>-->
+<!--                                             <td>{{ i.pin_code }}</td>-->
+<!--                                              <td>{{ i.state }}</td>-->
+<!--                                              <td>{{ i.country }}</td>-->
+<!--                                              <td>{{ i.phone_number }}</td>-->
+<!--                                              <td>{{ i.email }}</td>-->
+<!--                                          </tr>-->
+<!--                                          <tr>-->
+<!--                                             <td>Mary</td>-->
+<!--                                             <td>Moe</td>-->
+<!--                                             <td>mary@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                          <tr>-->
+<!--                                             <td>July</td>-->
+<!--                                             <td>Dooley</td>-->
+<!--                                             <td>july@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                       </tbody>-->
+<!--                                        {% endfor %}-->
+<!--                                    </table>-->
+<!--                                    <table class="table">-->
+<!--                                       <thead class="thead-light">-->
+<!--                                          <tr>-->
+<!--                                             <th>Firstname</th>-->
+<!--                                             <th>Lastname</th>-->
+<!--                                             <th>Email</th>-->
+<!--                                          </tr>-->
+<!--                                       </thead>-->
+<!--                                       <tbody>-->
+<!--                                          <tr>-->
+<!--                                             <td>John</td>-->
+<!--                                             <td>Doe</td>-->
+<!--                                             <td>john@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                          <tr>-->
+<!--                                             <td>Mary</td>-->
+<!--                                             <td>Moe</td>-->
+<!--                                             <td>mary@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                          <tr>-->
+<!--                                             <td>July</td>-->
+<!--                                             <td>Dooley</td>-->
+<!--                                             <td>july@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                       </tbody>-->
+<!--                                    </table>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+
+
+<div class="col-md-12" xmlns="http://www.w3.org/1999/html">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2><b>Police Station Details</b></h2>
+                                 </div>
+                              </div>
+                              <div class="table_section padding_infor_info">
+                                 <div class="table-responsive-sm">
+                                    <table class="table">
+                                       <thead>
+
+                                          <tr>
+                                              <th><b><i>Station name</i></b></th>
+                                             <th><b><i>Address</i></b></th>
+                                             <th><b><i>Pin Code</i></b></th>
+                                             <th><b><i>State</i></b></th>
+                                             <th><b><i>District</i></b></th>
+                                             <th><b><i>Phone Number</i></b></th>
+                                             <th><b><i>Email</i></b></th>
+                                              <th><b><i>Photo</i></b></th>
+                                              <th><b><i>Actions</i></b></th>
+                                              <th></th>
+
+
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                       {% for i in data %}
+                                          <tr>
+                                              <td>{{ i.station_name }}</td>
+                                             <td>{{ i.address }}</td>
+                                             <td>{{ i.pin_code }}</td>
+                                              <td>{{ i.state }}</td>
+                                              <td>{{ i.District }}</td>
+                                              <td>{{ i.phone_number }}</td>
+                                              <td>{{ i.email }}</td>
+                                              <td><img src="{{ i.photo.url }}" width="100" height="100"> </td>
+                                               <td><a class="btn cur-p btn-success" href="{% url 'updatepolice' i.id %}">Update</a></td>
+
+<!--                                              <td>-->
+<!--                                                  <form action="{% url 'updatepolice' i.id %}" method="post">-->
+<!--&lt;!&ndash;                                                        style="display: inline;" onsubmit="window.mytest()">&ndash;&gt;-->
+<!--                                                      {% csrf_token %}-->
+<!--                                                      <input type="hidden" value="{{ i.id }}"/>-->
+<!--                                                      <button type="submit"-->
+<!--                                                              class="btn btn-success waves-effect waves-light">-->
+<!--                                                      Update-->
+<!--                                                      </button></form></td>-->
+                                              <td>
+                                                  <form action="{% url 'removepolice' i.id %}" method="post"
+                                                        style="display: inline;" onsubmit="window.mytest()">
+                                                      {% csrf_token %}
+                                                      <input type="hidden" value="{{ i.id }}"/>
+                                                      <button type="submit"
+                                                              class="btn btn-danger waves-effect width-md waves-light">
+                                                      Delete
+                                                      </button></form></td>
+
+                                          </tr>
+                                       </tbody>
+                                        {% endfor %}
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+<script type="text/javascript">
+    window.mytest = function()
+    { var isValid = confirm('Are you sure Want to Delete ?');if (!isValid) { event.preventDefault();
+    }}
+</script>
+
+
+{% endblock %}

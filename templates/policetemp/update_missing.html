@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'policetemp/indexpolice.html' %}
+{% block content %}
+{%load crispy_forms_tags %}
+<form method = 'post' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{missing_form|crispy}}
+    <input type="submit" class="btn cur-p btn-success" value="SUBMIT" >
+</form>
+{% endblock %}

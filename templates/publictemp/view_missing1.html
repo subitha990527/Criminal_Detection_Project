@@ -1,0 +1,133 @@
+{% extends 'publictemp/indexpublic.html' %}
+{% block content %}
+<!--<div class="col-md-6">-->
+<!--                           <div class="white_shd full margin_bottom_30">-->
+<!--                              <div class="full graph_head">-->
+<!--                                 <div class="heading1 margin_0">-->
+<!--                                    <h2>Police Station Details</h2>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                              <div class="table_section padding_infor_info">-->
+<!--                                 <div class="table-responsive-sm">-->
+<!--                                    <table class="table">-->
+<!--                                       <thead class="thead-dark">-->
+<!--                                          <tr>-->
+<!--                                             <th>Station name</th>-->
+<!--                                             <th>Address</th>-->
+<!--                                              <th>Pin Code</th>-->
+<!--                                              <th>State</th>-->
+<!--                                              <th>Country</th>-->
+<!--                                              <th>Phone Number</th>-->
+<!--                                             <th>Email</th>-->
+<!--                                          </tr>-->
+<!--                                       </thead>-->
+<!--                                        {% for i in data %}-->
+<!--                                       <tbody>-->
+<!--                                          <tr>-->
+<!--                                             <td>{{ i.station_name }}</td>-->
+<!--                                             <td>{{ i.address }}</td>-->
+<!--                                             <td>{{ i.pin_code }}</td>-->
+<!--                                              <td>{{ i.state }}</td>-->
+<!--                                              <td>{{ i.country }}</td>-->
+<!--                                              <td>{{ i.phone_number }}</td>-->
+<!--                                              <td>{{ i.email }}</td>-->
+<!--                                          </tr>-->
+<!--                                          <tr>-->
+<!--                                             <td>Mary</td>-->
+<!--                                             <td>Moe</td>-->
+<!--                                             <td>mary@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                          <tr>-->
+<!--                                             <td>July</td>-->
+<!--                                             <td>Dooley</td>-->
+<!--                                             <td>july@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                       </tbody>-->
+<!--                                        {% endfor %}-->
+<!--                                    </table>-->
+<!--                                    <table class="table">-->
+<!--                                       <thead class="thead-light">-->
+<!--                                          <tr>-->
+<!--                                             <th>Firstname</th>-->
+<!--                                             <th>Lastname</th>-->
+<!--                                             <th>Email</th>-->
+<!--                                          </tr>-->
+<!--                                       </thead>-->
+<!--                                       <tbody>-->
+<!--                                          <tr>-->
+<!--                                             <td>John</td>-->
+<!--                                             <td>Doe</td>-->
+<!--                                             <td>john@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                          <tr>-->
+<!--                                             <td>Mary</td>-->
+<!--                                             <td>Moe</td>-->
+<!--                                             <td>mary@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                          <tr>-->
+<!--                                             <td>July</td>-->
+<!--                                             <td>Dooley</td>-->
+<!--                                             <td>july@example.com</td>-->
+<!--                                          </tr>-->
+<!--                                       </tbody>-->
+<!--                                    </table>-->
+<!--                                 </div>-->
+<!--                              </div>-->
+<!--                           </div>-->
+<!--                        </div>-->
+
+
+   <div class="col-md-12">
+                           <div class="white_shd full margin_bottom_30">
+                              <div class="full graph_head">
+                                 <div class="heading1 margin_0">
+                                    <h2><b>Missing & Wanted criminals Details</b></h2>
+                                 </div>
+                              </div>
+                              <div class="table_section padding_infor_info">
+                                 <div class="table-responsive-sm">
+                                    <table class="table">
+                                       <thead>
+
+                                          <tr>
+                                                <th><b><i>Station Name</i></b></th>
+                                              <th><b><i>Name</i></b></th>
+                                              <th><b><i>Gender</i></b></th>
+                                             <th><b><i>State</i></b></th>
+                                             <th><b><i>District</i></b></th>
+                                              <th><b><i>Crime Number</i></b></th>
+                                             <th><b><i>Crime Category</i></b></th>
+                                              <th><b><i>Photo</i></b></th>
+
+
+
+
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                       {% for i in missingdata %}
+                                          <tr>
+                                            <td>{{ i.station_name }}</td>
+                                              <td>{{ i.name }}</td>
+                                              <td>{{ i.gender }}</td>
+                                              <td>{{ i.state }}</td>
+                                              <td>{{ i.District }}</td>
+                                              <td>{{ i.crime_no }}</td>
+                                              <td>{{ i.crime_category }}</td>
+                                              <td><img src="{{ i.photo.url }}" width="100" height="100"> </td>
+
+
+                                          </tr>
+                                       </tbody>
+                                        {% endfor %}
+                                    </table>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+
+
+{% endblock %}
